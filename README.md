@@ -1,9 +1,5 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
 
 * Ruby version
 
@@ -19,6 +15,20 @@ Things you may want to cover:
 
 * Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
 
-* ...
+## Lancer le serveur
+
+`` > rails s``
+
+## Runner les migrations
+
+`` > rails db:migrate``
+
+## Créer un model User
+
+`` > rails g model User``
+
+## Créer un controller Users
+
+`` > rails g controller Users ``
+
