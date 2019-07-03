@@ -14,18 +14,18 @@
   <h1 class="navbar-brand">RubyBlog</h1>
 
   <div class="nav-item">
-  <% if user_signed_in? %>
-    <p>Connected as: <%= current_user.first_name %> <%= current_user.last_name %></p>
-    <%= link_to('Logout', destroy_user_session_path, method: :delete, :class => "badge badge-secondary") %>
-  <% else %>
-    <%= link_to('Login', new_user_session_path, method: :post, :class => "badge badge-primary") %>
-  <% end %>
-  <%= link_to('Register', new_user_registration_path, :class => "badge badge-secondary") %>
+    <% if user_signed_in? %>
+      <p>Connected as: <%= current_user.full_name %></p>
+      <%= link_to('Logout', destroy_user_session_path, method: :delete, :class => "badge badge-secondary") %>
+    <% else %>
+      <%= link_to('Login', new_user_session_path, method: :post, :class => "badge badge-primary") %>
+      <%= link_to('Register', new_user_registration_path, :class => "badge badge-secondary") %>
+    <% end %>
   </div>
 </nav>
 
 <div class="container">
-<%= yield %>
+  <%= yield %>
 </div>
 </body>
 </html>

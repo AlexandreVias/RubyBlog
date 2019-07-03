@@ -7,7 +7,7 @@ class Users::PostsController < ApplicationController
   end
 
   def show
-    @user.posts.find(params[:id])
+    @post = @user.posts.find(params[:id])
   end
 
   def load_user

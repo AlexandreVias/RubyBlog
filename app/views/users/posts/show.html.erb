@@ -1,6 +1,10 @@
 <h1><%= @post.title %></h1>
-<h2><%= @post.kicker %></h2>
-
+<p><i>Créé le : <%= @post.updated_at.strftime('%d/%m/%Y') %></i></p>
+<p><strong><%= @post.kicker %></strong></p>
 <p><%= @post.body %></p>
+<p>Auteur : <%= link_to @user do %>
+    <%= @user.full_name %>
+  <% end %>
+</p>
 
-<%= link_to 'Editer', [:edit, @user, @post], class: 'btn btn-success' %>
+<%= link_to 'Éditer', [:edit, @user, @post], class: 'btn btn-success' %>
