@@ -1,0 +1,16 @@
+<%= form_for @post, url: [@user, @post] do |f| %>
+  Titre : <%= f.text_field :title %>
+  <% if @post.errors[:title].present? %>
+    <%= @post.errors[:title].to_sentence %>
+  <% end %>
+  Chapeau : <%= f.text_field :kicker %>
+  <% if @post.errors[:kicker].present? %>
+    <%= @post.errors[:kicker].to_sentence %>
+  <% end %>
+  Corps : <%= f.text_area :body %>
+  <% if @post.errors[:body].present? %>
+    <%= @post.errors[:body].to_sentence %>
+  <% end %>
+<!--  TODO : rajouter l'image-->
+  <%= f.submit %>
+<% end %>

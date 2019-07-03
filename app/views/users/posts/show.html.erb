@@ -1,0 +1,6 @@
+<h1><%= @post.title %></h1>
+<h2><%= @post.kicker %></h2>
+
+<p><%= @post.body %></p>
+
+<%= link_to 'Editer', [:edit, @user, @post], class: 'btn btn-success' %>
