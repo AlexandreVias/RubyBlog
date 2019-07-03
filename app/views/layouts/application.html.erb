@@ -12,20 +12,23 @@
 <body>
 <nav class="navbar navbar-light bg-light">
   <h1 class="navbar-brand">RubyBlog</h1>
+  <% if user_signed_in? %>
+    <div class="nav-section"> <%= link_to 'Nouveau post', [:new, :user, :post], class: 'btn btn-success' %></div>
+  <% end %>
 
   <div class="nav-item">
-  <% if user_signed_in? %>
-    <p>Connected as: <%= current_user.first_name %> <%= current_user.last_name %></p>
-    <%= link_to('Logout', destroy_user_session_path, method: :delete, :class => "badge badge-primary") %>
-  <% else %>
-    <%= link_to('Login', new_user_session_path, method: :post, :class => "badge badge-secondary") %>
-  <% end %>
-  <%= link_to('Register', new_user_registration_path) %>
+    <% if user_signed_in? %>
+      <p>Connected as: <%= current_user.first_name %> <%= current_user.last_name %></p>
+      <%= link_to('Logout', destroy_user_session_path, method: :delete, :class => "badge badge-primary") %>
+    <% else %>
+      <%= link_to('Login', new_user_session_path, method: :post, :class => "badge badge-secondary") %>
+    <% end %>
+    <%= link_to('Register', new_user_registration_path) %>
   </div>
 </nav>
 
 <div class="container">
-<%= yield %>
+  <%= yield %>
 </div>
 </body>
 </html>

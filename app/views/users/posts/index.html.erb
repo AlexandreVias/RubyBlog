@@ -1,13 +1,13 @@
-<%= link_to 'Nouveau post', [:new, :user, :post], class: 'btn btn-success' %>
-
 <h3>Il y a <%= @count %> Posts en ligne </h3>
-<% @posts.each do |post| %>
-  <div class="card" style="width: 18rem;">
-    <img class="card-img-top" src="" alt="Card image cap">
-    <div class="card-body">
-      <h5 class="card-title"><%= post.title %>></h5>
-      <p class="card-text"><%= post.kicker %></p>
-      <a href="#" class="btn btn-primary">Voir plus</a>
+<div class="row">
+  <% @posts.each do |post| %>
+    <div class="card m-2" style="width: 18rem;">
+      <img class="card-img-top" src="" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title"><%= post.title %></h5>
+        <p class="card-text"><%= post.kicker %></p>
+        <a href="#" class="btn btn-primary">Voir plus</a>
+      </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
+</div>
