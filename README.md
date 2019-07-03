@@ -32,3 +32,7 @@
 
 `` > rails g controller Users ``
 
+## Update Gem
+
+````
+
