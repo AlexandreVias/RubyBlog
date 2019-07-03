@@ -1,16 +1,7 @@
 class PostsController < ApplicationController
-  before_action :load_user
 
   def index
-    @posts = @user.posts
+    @posts = Post.all.limit(5)
     @count = @posts.count
-  end
-
-  def new
-
-  end
-
-  def load_user
-    @user = User.find(params[:id])
   end
 end
