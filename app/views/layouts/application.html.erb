@@ -11,6 +11,14 @@
 
 <body>
 <h1>RubyBlog</h1>
+
+<% if user_signed_in? %>
+  <p>Connected as: <%= current_user.first_name %> <%= current_user.last_name %></p>
+  <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
+<% else %>
+  <%= link_to('Login', new_user_session_path, method: :post) %>
+<% end %>
+
 <%= yield %>
 </body>
 </html>
