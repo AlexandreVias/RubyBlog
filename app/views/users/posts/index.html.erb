@@ -1,12 +1,11 @@
 <h3>Il y a <%= @count %> Posts en ligne </h3>
-<ul class="postList">
-  <% @posts.each do |post| %>
-    <li>
-      <ul class="post">
-        <%= link_to post do %>
-
-        <% end %>
-      </ul>
-    </li>
-  <% end %>
-</ul>
+<% @posts.each do |post| %>
+  <div class="card" style="width: 18rem;">
+    <img class="card-img-top" src="" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title"><%= post.title %>></h5>
+      <p class="card-text"><%= post.kicker %></p>
+      <a href="#" class="btn btn-primary">Voir plus</a>
+    </div>
+  </div>
+<% end %>
