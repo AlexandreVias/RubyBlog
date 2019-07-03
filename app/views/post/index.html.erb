@@ -1,0 +1,16 @@
+<h1>Bienvenue sur mon super blog !</h1>
+
+<%= link_to 'Nouveau post', [:new, :post], class: 'btn btn-success' %>
+
+<h3>Il y a <%= @count %> Posts en ligne </h3>
+<ul class="postList">
+  <% @post.each do |post| %>
+    <li>
+      <ul class="post">
+        <%= link_to post do %>
+
+        <% end %>
+      </ul>
+    </li>
+  <% end %>
+</ul>

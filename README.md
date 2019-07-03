@@ -34,5 +34,5 @@
 
 ## Update Gem
 
-````
+`` > bundle install``
 
