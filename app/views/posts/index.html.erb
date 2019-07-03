@@ -1,6 +1,7 @@
-<h1>Bienvenue sur mon super blog !</h1>
-
-<h3>Voici les  <%= @count %> derniers posts en ligne </h3>
+<h3>Voici les <%= @count %> derniers posts en ligne </h3>
+<% if user_signed_in? %>
+  <%= link_to('Nouveau post', [:new, :post], :class => "badge badge-success") %>
+<% end %>
 <ul class="postList">
   <% @posts.each do |post| %>
     <li>
