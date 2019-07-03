@@ -2,14 +2,8 @@
 <% if user_signed_in? %>
   <%= link_to('Nouveau post', [:new, :post], :class => "badge badge-success") %>
 <% end %>
-<ul class="postList">
+<div class="row">
   <% @posts.each do |post| %>
-    <li>
-      <ul class="post">
-        <%#= link_to post.title, [:show, post.user, @post]%>
-        <%= post.kicker %>
-        <%= post.user %>
-      </ul>
-    </li>
+    <%= render partial: "card", :locals => { :post => post }%>
   <% end %>
-</ul>
+</div>

@@ -1,13 +1,6 @@
 <h3>Il y a <%= @count %> Posts en ligne </h3>
 <div class="row">
   <% @posts.each do |post| %>
-    <div class="card m-2" style="width: 18rem;">
-      <img class="card-img-top" src="" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title"><%= post.title %></h5>
-        <p class="card-text"><%= post.kicker %></p>
-        <a href="#" class="btn btn-primary">Voir plus</a>
-      </div>
-    </div>
+    <%= render partial: "card", :locals => { :post => post }%>
   <% end %>
 </div>
