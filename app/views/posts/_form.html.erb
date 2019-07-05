@@ -1,5 +1,7 @@
-<%= form_for @post, url: [@user, @post] do |f| %>
+<%= form_for @post, html: { multipart: true }, url: [@user, @post] do |f| %>
   <div class="form-group">
+    <%= f.file_field :image %>
+
     <label>Titre</label>
     <%= f.text_field :title, :class=>'form-control'%>
     <% if @post.errors[:title].present? %>

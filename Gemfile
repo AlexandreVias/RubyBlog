@@ -8,6 +8,10 @@ gem 'jquery-rails'
 
 gem 'faker'
 
+gem 'carrierwave'
+
+gem 'rmagick'
+
 gem 'devise'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

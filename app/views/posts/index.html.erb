@@ -1,7 +1,4 @@
 <h3>Voici les <%= @count %> derniers posts en ligne </h3>
-<% if user_signed_in? %>
-  <%= link_to('Nouveau post', [:new, :post], :class => "badge badge-success") %>
-<% end %>
 <div class="row">
   <% @posts.each do |post| %>
     <%= render partial: "card", :locals => { :post => post }%>
