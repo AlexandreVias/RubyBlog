@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:create]
 
   def index
-    @posts = Post.all.limit(5)
+    @posts = Post.all.order('updated_at DESC').limit(5)
     @count = @posts.count
   end
 
@@ -20,6 +20,6 @@ class PostsController < ApplicationController
   end
 
   def post_attributes
-    params[:post].permit(:title, :kicker, :body)
+    params[:post].permit(:title, :kicker, :body, :img)
   end
 end
