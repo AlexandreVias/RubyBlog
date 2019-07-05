@@ -1,6 +1,6 @@
 <h3>Il y a <%= @count %> Posts en ligne </h3>
 <div class="row">
   <% @posts.each do |post| %>
-    <%= render partial: "card", :locals => { :post => post }%>
+    <%= render partial: "posts/card", :locals => {:post => post} %>
   <% end %>
 </div>
