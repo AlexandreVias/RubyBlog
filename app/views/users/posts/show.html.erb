@@ -6,5 +6,6 @@
     <%= @user.full_name %>
   <% end %>
 </p>
-
-<%= link_to 'Éditer', [:edit, @user, @post], class: 'btn btn-success' %>
+<% if current_user.id == @user.id %>
+  <%= link_to 'Éditer', [:edit, @user, @post], class: 'btn btn-success' %>
+<% end %>
