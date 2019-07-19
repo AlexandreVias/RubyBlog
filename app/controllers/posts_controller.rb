@@ -2,8 +2,9 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:create]
 
   def index
-    @posts = Post.all.order('updated_at DESC').limit(5)
-    @count = @posts.count
+    posts = Post.all.order('updated_at DESC')
+    @count = posts.count
+    @posts = posts.page(params[:page]).per(6)
   end
 
   def new

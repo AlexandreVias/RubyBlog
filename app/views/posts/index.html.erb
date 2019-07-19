@@ -1,6 +1,7 @@
 <h3>Voici les <%= @count %> derniers posts en ligne </h3>
+<%= paginate @posts %>
 <div class="row">
   <% @posts.each do |post| %>
-    <%= render partial: "card", :locals => { :post => post }%>
+    <%= render partial: "card", :locals => {:post => post} %>
   <% end %>
 </div>
