@@ -12,17 +12,19 @@
 <body>
 <nav class="navbar navbar-light bg-light">
   <h1 class="navbar-brand">RubyBlog</h1>
+  <div class="nav-section"><%= link_to 'Voir les derniers posts', posts_path, class: 'btn btn-info' %></div>
   <% if user_signed_in? %>
-    <div class="nav-section"> <%= link_to 'Nouveau post', [:new, :post], class: 'btn btn-success' %></div>
+    <div class="nav-section"><%= link_to 'Créer un post', [:new, :post], class: 'btn btn-success' %></div>
   <% end %>
 
   <div class="nav-item">
     <% if user_signed_in? %>
-      <p>Connected as: <%= current_user.first_name %> <%= current_user.last_name %></p>
-      <%= link_to('Logout', destroy_user_session_path, method: :delete, :class => "badge badge-secondary") %>
+      <p>Bonjour <%= current_user.first_name %> <%= current_user.last_name %></p>
+      <%= link_to('Déconnexion', destroy_user_session_path, method: :delete, :class => "badge badge-secondary") %>
     <% else %>
-      <%= link_to('Login', new_user_session_path, method: :post, :class => "badge badge-primary") %>
-      <%= link_to('Register', new_user_registration_path, :class => "badge badge-secondary") %>
+      <p>Vous êtes déconnecté.</p>
+      <%= link_to('Connexion', new_user_session_path, method: :post, :class => "badge badge-primary") %>
+      <%= link_to('Inscription', new_user_registration_path, :class => "badge badge-secondary") %>
     <% end %>
   </div>
 </nav>

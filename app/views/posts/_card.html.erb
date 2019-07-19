@@ -4,6 +4,12 @@
     <%= link_to [post.user, post] do %>
       <h5 class="card-title"><%= post.title %></h5>
     <% end %>
+    <p class="card-text"><i><%= post.updated_at.strftime('%d/%m/%Y') %></i></p>
     <p class="card-text"><%= post.kicker %></p>
+    <p class="card-text">
+      <%= link_to [post.user, :posts] do %>
+        <%= post.user.full_name %>
+      <% end %>
+    </p>
   </div>
 </div>
