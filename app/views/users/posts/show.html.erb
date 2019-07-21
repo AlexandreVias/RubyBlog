@@ -1,26 +1,33 @@
-<%= image_tag(@post.img.banner.url, :class => "card-img-top") if @post.img? %>
-<h2><%= @post.title %></h2>
-<p><i>Créé le : <%= @post.updated_at.strftime('%d/%m/%Y') %></i></p>
-<p><strong><%= @post.kicker %></strong></p>
+<%= image_tag(@post.img.url, :class => "card-img-top") if @post.img? %>
+<h2 class="text-center m-3"><%= @post.title %></h2>
+<p class="m-0"><strong><%= @post.kicker %></strong></p>
+<p class="small"><i>Créé le : <%= @post.updated_at.strftime('%d/%m/%Y') %></i></p>
 <p><%= @post.body %></p>
-<p>Auteur : <%= link_to user_posts_path do %>
+<p class="small">Auteur : <%= link_to user_posts_path do %>
     <%= @user.full_name %>
   <% end %>
 </p>
-<% if user_signed_in? %>
-  <% if current_user.id == @user.id %>
-    <%= link_to 'Éditer', [:edit, @user, @post], class: 'btn btn-success' %>
-    <%= link_to 'Supprimer', [@user, @post], method: :delete, data: {confirm: 'Êtes-vous sûr ?'}, class: 'btn btn-danger' %>
+<div class="row justify-content-center">
+  <% if user_signed_in? %>
+    <% if current_user.id == @user.id %>
+      <%= link_to 'Éditer', [:edit, @user, @post], class: 'btn btn-success m-2' %>
+      <%= link_to 'Supprimer', [@user, @post], method: :delete, data: {confirm: 'Êtes-vous sûr ?'}, class: 'btn btn-danger m-2' %>
+    <% end %>
   <% end %>
-  <%= render partial: "comments/form", :comment => @comment %>
-<% end %>
+</div>
 
 <h3>Commentaires</h3>
 <div class="column">
   <% @comments.each do |comment| %>
-    <p>
-      <i><%= comment.user.first_name %>, le <%= comment.created_at.strftime('%d/%m/%Y') %></i><br>
-      <b><%= comment.body %></b>
-    </p>
+    <div class="card m-2">
+      <div class="card-header">
+        <i><%= comment.user.first_name %>, le <%= comment.created_at.strftime('%d/%m/%Y') %></i><br>
+      </div>
+      <div class="card-body"><%= comment.body %></div>
+    </div>
   <% end %>
 </div>
+
+<% if user_signed_in? %>
+  <%= render partial: "comments/form", :comment => @comment %>
+<% end %>
