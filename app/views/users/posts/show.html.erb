@@ -18,6 +18,9 @@
 <h3>Commentaires</h3>
 <div class="column">
   <% @comments.each do |comment| %>
-    <p> <%= comment.body %></p>
+    <p>
+      <i><%= comment.user.first_name %>, le <%= comment.created_at.strftime('%d/%m/%Y') %></i><br>
+      <b><%= comment.body %></b>
+    </p>
   <% end %>
 </div>
