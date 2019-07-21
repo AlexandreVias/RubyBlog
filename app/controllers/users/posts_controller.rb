@@ -10,6 +10,8 @@ class Users::PostsController < ApplicationController
 
   def show
     @post = @user.posts.find(params[:id])
+    @comments = @post.comments
+    @comment = Comment.new
   end
 
   def edit

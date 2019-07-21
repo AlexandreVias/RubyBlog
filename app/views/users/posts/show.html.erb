@@ -11,3 +11,5 @@
   <%= link_to 'Éditer', [:edit, @user, @post], class: 'btn btn-success' %>
   <%= link_to 'Supprimer', [@user, @post], method: :delete, data: {confirm: 'Êtes-vous sûr ?'}, class: 'btn btn-danger' %>
 <% end %>
+
+<%= render partial: "comments/form", :comment => @comment%>
