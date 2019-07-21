@@ -7,13 +7,15 @@
     <%= @user.full_name %>
   <% end %>
 </p>
-<% if user_signed_in? and current_user.id == @user.id %>
-  <%= link_to 'Éditer', [:edit, @user, @post], class: 'btn btn-success' %>
-  <%= link_to 'Supprimer', [@user, @post], method: :delete, data: {confirm: 'Êtes-vous sûr ?'}, class: 'btn btn-danger' %>
+<% if user_signed_in? %>
+  <% if current_user.id == @user.id %>
+    <%= link_to 'Éditer', [:edit, @user, @post], class: 'btn btn-success' %>
+    <%= link_to 'Supprimer', [@user, @post], method: :delete, data: {confirm: 'Êtes-vous sûr ?'}, class: 'btn btn-danger' %>
+  <% end %>
+  <%= render partial: "comments/form", :comment => @comment %>
 <% end %>
 
-<%= render partial: "comments/form", :comment => @comment %>
-
+<h3>Commentaires</h3>
 <div class="column">
   <% @comments.each do |comment| %>
     <p> <%= comment.body %></p>
